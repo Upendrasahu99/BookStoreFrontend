@@ -1,0 +1,70 @@
+.signupMainDiv{
+    /*Layout Property*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;/*aling verticaly*/
+    justify-content: center;/*aling horizontaly*/
+
+    /*UI property*/
+   /* background: #000000  no-repeat padding-box;
+    opacity: 0.31;*/
+}
+
+.centerDiv{
+    /* Layout Properties */
+    border: 4px solid blue;
+    top: 166px;
+    left: 320px;
+    width: 727px;
+    height: 425px;
+    /* UI Properties */
+    opacity: 1;
+}
+
+.imagebox{
+    /* Layout Properties */
+    border: 3px solid green;
+    margin-top: 19px;
+    margin-bottom: 19px;
+    margin-right: 103px;
+    margin-left: 0px;
+    width: 624px;
+    height: 391px;
+    position:absolute;
+    z-index: -1;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 21px;
+    opacity: 1;
+    background-color: blue;
+}
+
+.loginComponent{
+    border: 3px solid purple;
+    width: 389px;
+    height: 425px;
+    margin-left: 335px;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+}
+
+.signupHeading,.loginHeading{
+    display: inline-block;
+    font: normal normal medium 25px/33px Roboto;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+.loginHeading{
+    position: absolute;
+    left: 69px;
+    top: 28px;
+    color: #0A0102;
+}
+.signupHeading{
+    position: absolute;
+    right: 77px;
+    top: 28px;
+    color: #878787;
+}
