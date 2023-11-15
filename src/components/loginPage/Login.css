@@ -1,0 +1,203 @@
+
+.signupHeading,.loginHeading{
+    display: inline-block;
+    font: normal normal medium 25px/33px Roboto;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    margin: 0%;
+}
+.loginHeading{
+    position: absolute;
+    left: 69px;
+    top: 28px;
+    color: #0A0102;
+}
+.headingline{
+    position: absolute;
+    top:64px;
+    left:94px;
+    width: 22px;
+    height: 5px;
+    /* UI Properties */
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}
+.signupHeading{
+    position: absolute;
+    right: 77px;
+    top: 28px;
+    color: #878787;
+}
+.emailLabel{
+    position: absolute;
+    left: 69px;
+    top: 91px;
+    width: 36px;
+    height: 13px;
+    text-align: left;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.email{
+    /* Layout Properties */
+    position: absolute;
+    top: 104px;
+    left: 69px;
+    width: 252px;
+    height: 35px;
+}
+
+.passworLabel{
+    position: absolute;
+    /* Layout Properties */
+    top: 154px;
+    left: 69px;
+    width: 44px;
+    height: 13px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.password{
+    position: absolute;
+    /* Layout Properties */
+    top: 167px;
+    left: 69px;
+    width: 252px;
+    height: 35px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #0A0102;
+    border-radius: 2px;
+    opacity: 1;
+}
+.loginButton{
+    position: absolute;
+    top: 232px;
+    left: 69px;
+    width: 252px;
+    height: 37px;
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+}
+.loginText{
+    position: absolute;
+    /* Layout Properties */
+    top: 9px;
+    left: 104px;
+    width: 37px;
+    height: 20px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal normal 15px/20px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+span{
+    position: absolute;
+    /* Layout Properties */
+    top: 295px;
+    left: 97.99px;
+    width: 191px;
+    height: 18px;
+    /* UI Properties */
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+span {
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+span:before,
+span:after {
+    content: "";
+    display: inline-block;
+    width: 50%;
+    height: 1px;
+    vertical-align: middle;
+    background: lightgrey;
+}
+
+span:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+span:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+.or{
+    font: normal normal bold 14px/18px Meiryo UI;
+    color: #343434; 
+    text-transform: uppercase;
+    width: 60px;
+}
+.faceBookButton{
+    position: absolute;
+    /* Layout Properties */
+    top: 341px;
+    left: 69px;
+    width: 126px;
+    height: 37px;
+    /* UI Properties */
+    background: #4266B2 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+}
+.faceBookText{
+    position: absolute;
+    /* Layout Properties */
+    top: 11px;
+    left: 38px;
+    width: 46px;
+    height: 16px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.googleButton{
+    position: absolute;
+    /* Layout Properties */
+    top: 341px;
+    left: 202px;
+    width: 119px;
+    height: 37px;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 3px;
+    opacity: 1;
+}
+.googleText{
+    position: absolute;
+    /* Layout Properties */
+    top: 11px;
+    left: 41px;
+    width: 38px;
+    height: 16px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
