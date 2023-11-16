@@ -1,11 +1,11 @@
-.signupMainDiv{
+#signupMainDiv{
     /*Layout Property*/
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;/*aling verticaly*/
     justify-content: center;/*aling horizontaly*/
-
+    
     /*UI property*/
     background-color: gray;
     opacity: 0.90;
@@ -14,9 +14,8 @@
 }
 
 .centerDiv{
+    position: absolute;
     /* Layout Properties */
-    top: 166px;
-    left: 320px;
     width: 727px;
     height: 425px;
     /* UI Properties */

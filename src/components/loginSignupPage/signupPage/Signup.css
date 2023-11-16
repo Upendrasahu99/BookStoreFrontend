@@ -1,0 +1,33 @@
+
+.signupHeadSignup,.loginHeadSignup{
+    display: inline-block;
+    font: normal normal medium 25px/33px Roboto;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    margin: 0%;
+}
+.loginHeadSignup{ 
+    /* for make cursor pointer when we hovew over heading  */
+    cursor: pointer; 
+    position: absolute;
+    left: 69px;
+    top: 28px;
+    color: #878787;
+}
+.signupHeadSignup{
+    position: absolute;
+    right: 77px;
+    top: 28px;
+    color: #0A0102;;
+}
+.healineSignup{
+    position: absolute;
+    top:64px;
+    left:257px;
+    width: 22px;
+    height: 5px;
+    /* UI Properties */
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}

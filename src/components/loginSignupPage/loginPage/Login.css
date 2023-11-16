@@ -24,62 +24,32 @@
     opacity: 1;
 }
 .signupHeading{
+    /* for make cursor pointer when we hovew over heading  */
+    cursor: pointer; 
     position: absolute;
     right: 77px;
     top: 28px;
     color: #878787;
 }
+/*Position for email lable in login component*/
 .emailLabel{
-    position: absolute;
     left: 69px;
     top: 91px;
-    width: 36px;
-    height: 13px;
-    text-align: left;
-    /* UI Properties */
-    text-align: left;
-    font: normal normal normal 10px/13px Roboto;
-    letter-spacing: 0px;
-    color: #0A0102;
-    text-transform: capitalize;
-    opacity: 1;
 }
+/*Position for email input in login component*/
 .email{
-    /* Layout Properties */
-    position: absolute;
     top: 104px;
     left: 69px;
-    width: 252px;
-    height: 35px;
 }
-
-.passworLabel{
-    position: absolute;
-    /* Layout Properties */
+/*posidtion for password label in login component*/
+.passworLabel{ 
     top: 154px;
     left: 69px;
-    width: 44px;
-    height: 13px;
-    /* UI Properties */
-    text-align: left;
-    font: normal normal normal 10px/13px Roboto;
-    letter-spacing: 0px;
-    color: #0A0102;
-    text-transform: capitalize;
-    opacity: 1;
 }
+/*postion for password input in login component*/
 .password{
-    position: absolute;
-    /* Layout Properties */
     top: 167px;
     left: 69px;
-    width: 252px;
-    height: 35px;
-    /* UI Properties */
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #0A0102;
-    border-radius: 2px;
-    opacity: 1;
 }
 .loginButton{
     position: absolute;

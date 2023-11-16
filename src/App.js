@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Base from './components/basePage/Base';
+import Base from './components/loginSignupPage/basePage/Base';
 
 
 function App() {
