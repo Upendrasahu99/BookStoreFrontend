@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Signup.css";
+import { signup } from "../../../service/UserService";
 
 const Signup = (props) => {
   //Initial State of all data
   const [formValues, setFormValues] = useState({
-    username: "",
+    fullName: "",
     email: "",
     password: "",
     mobileNum: "",
@@ -34,7 +35,7 @@ const Signup = (props) => {
 
   //Handling event when data change it will add.
   const handleU_NameChange = (e) => {
-    setFormValues({ ...formValues, username: e.target.value });
+    setFormValues({ ...formValues, fullName: e.target.value });
     console.log(formValues);
   };
   const handleEmailChange = (e) => {
@@ -51,12 +52,12 @@ const Signup = (props) => {
   };
 
   //Check fir empty box
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
      e.preventDefault();
     let newErrors = {};
 
     //Check for empty box
-    if (!formValues.username) {
+    if (!formValues.fullName) {
       newErrors = {...newErrors, userN_Error: "Username is empty", userStatus: true };
     } 
     if (!formValues.email) {
@@ -88,12 +89,18 @@ const Signup = (props) => {
     }
     console.log(newErrors)
     SetError(newErrors);
+
+    // for user registration
+    const response = await signup(formValues);
+    console.log(response);
+    alert("User registerd successfully")
   };
+
   // Log the updated error state when it changes
   // we cannot use Console.log(error) in the method beacuse javascript is syncronus opertaion for update data it will take time
-  // useEffect(() => {
-  //   console.log(error);
-  // }, [error]);
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
 
   return (
     <div>
@@ -111,7 +118,7 @@ const Signup = (props) => {
         type="text"
         id="inputName"
         className="inputName"
-        value={formValues.username}
+        value={formValues.fullName}
         onChange={handleU_NameChange}
       ></input>
 
