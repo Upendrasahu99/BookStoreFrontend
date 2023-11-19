@@ -20,13 +20,13 @@ const Signup = (props) => {
     emailStatus: false,
     passwordError: "",
     passwordStatus: false,
-    mobNumErro: "",
+    mobNumError: "",
     mobNumStatus: false,
   });
 
   //Regex Pattern
   const regex = {
-    userN_Reg: /[A-Z]{1}[a-z]{2,}/,
+    userN_Reg: /^[A-Z][a-z]+ [A-Z][a-z]+$/,
     emailReg: /^[\w-.]+@gmail\.com$/,
     passwordReg:
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
@@ -34,81 +34,95 @@ const Signup = (props) => {
   };
 
   //Handling event when data change it will add.
-  const handleU_NameChange = (e) => {
-    setFormValues({ ...formValues, fullName: e.target.value });
-    console.log(formValues);
-  };
-  const handleEmailChange = (e) => {
-    setFormValues({ ...formValues, email: e.target.value });
-    console.log(formValues);
-  };
-  const handlePasswordChange = (e) => {
-    setFormValues({ ...formValues, password: e.target.value });
-    console.log(formValues);
-  };
-  const handleMobileN_Change = (e) => {
-    setFormValues({ ...formValues, mobileNum: e.target.value });
-    console.log(formValues);
+  const handleChange = (e, type) => {
+    setFormValues({ ...formValues, [type]: e.target.value });
+    //console.log(formValues);
   };
 
-  //Check fir empty box
-  const handleSubmit = async(e) => {
-     e.preventDefault();
+  //Check Data Pattern 
+  const checkData = async() => {
+    //Empy Error object 
     let newErrors = {};
 
-    //Check for empty box
-    if (!formValues.fullName) {
-      newErrors = {...newErrors, userN_Error: "Username is empty", userStatus: true };
-    } 
-    if (!formValues.email) {
-      newErrors = {
-        ...newErrors,
-        emailError: "Email is empty",
-        emailStatus: true,
-      };
-    }else {
-      newErrors = {
-        ...newErrors,
-        emailError: "Email is invalid",
-        emailStatus: true,
-      };
-    }
-    if (!formValues.password) {
-      newErrors = {
-        ...newErrors,
-        passwordError: "Password is empty",
-        passwordStatus: true,
-      };
-    }
-    if (!formValues.mobileNum) {
-      newErrors = {
-        ...newErrors,
-        mobNumErro: "Mobile Number is empty",
-        mobNumStatus: true,
-      };
-    }
-    console.log(newErrors)
-    SetError(newErrors);
+    //Check first Name
+    newErrors = !formValues.fullName
+      ? { ...newErrors, userN_Error: "Username is empty",  userStatus: true }
+      : !regex.userN_Reg.test(formValues.fullName)
+      ? { ...newErrors, userN_Error: "Username is invalid",  userStatus: true }
+      : { ...newErrors, userN_Error: "", userStatus: false };
 
-    // for user registration
-    const response = await signup(formValues);
-    console.log(response);
-    alert("User registerd successfully")
+      //Check Email
+    newErrors = !formValues.email
+      ? { ...newErrors, emailError: "Email is empty", emailStatus: true }
+      : !regex.emailReg.test(formValues.email)
+      ? { ...newErrors, emailError: "Email is invalid",  emailStatus: true }
+      : { ...newErrors, emailError: "", emailStatus: false };
+
+      //Check Password
+    newErrors = !formValues.password
+      ? {
+          ...newErrors,
+          passwordError: "Password is empty",
+          passwordStatus: true
+        }
+      : !regex.passwordReg.test(formValues.password)
+      ? {
+          ...newErrors,
+          passwordError: "Password is invalid",
+          passwordStatus: true
+        }
+      : { ...newErrors, passwordError: "", passwordStatus: false };
+
+      //Check Mobile Number
+    newErrors = !formValues.mobileNum
+      ? {
+          ...newErrors,
+          mobNumError: "Mobile number is empty",
+          mobNumStatus: true
+        }
+      : !regex.mobileNumReg.test(formValues.mobileNum)
+      ? {
+          ...newErrors,
+          mobNumError: "Mobile number is invalid",
+          mobNumStatus: true
+        }
+      : { ...newErrors, mobNumError: "", mobNumStatus: false };
+
+      //Set Error data 
+    await SetError(newErrors);
+    //show error data
+    console.log(newErrors)
+  }
+
+
+  //Handle Submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await checkData();
+
+    //If Error status false than it call the signup function from service or show alert message 
+    if (
+      error.userStatus === false &&
+      error.emailStatus === false &&
+      error.passwordStatus === false &&
+      error.mobNumStatus === false
+    ) {
+      const response = await signup(formValues); // for user registration
+      console.log(response); //Show the response coming form signup function
+      alert("User registerd successfully");
+    }
   };
 
-  // Log the updated error state when it changes
-  // we cannot use Console.log(error) in the method beacuse javascript is syncronus opertaion for update data it will take time
-  useEffect(() => {
-    console.log(error);
-  }, [error]);
-
   return (
-    <div>
+    <div id="signupComponent">
       {/* Accessing method as props for sending data to parent comonent (Base)*/}
       <h2 className="loginHeadSignup" onClick={props.Change}>
         LOGIN
       </h2>
+
       <h2 className="signupHeadSignup">SIGNUP</h2>
+
       <div className="healineSignup"></div>
 
       <label for="inputName" id="fullNameLabel">
@@ -117,21 +131,37 @@ const Signup = (props) => {
       <input
         type="text"
         id="inputName"
-        className="inputName"
+        className="inputbox"
         value={formValues.fullName}
-        onChange={handleU_NameChange}
+        onChange={(e) => handleChange(e, "fullName")}
+        style={{
+          border:
+            error.userStatus === true
+              ? "1px solid hsl(353, 100%, 50%)"
+              : "1px solid #E2E2E2",
+        }}
       ></input>
+      <p id="userN_error">{error.userN_Error}</p>
 
       <label for="emailSignup" id="emailSignuplabel">
         Email id
       </label>
       <input
         type="email"
-        className="form-control"
+        className="inputbox"
         id="emailSignup"
         value={formValues.email}
-        onChange={handleEmailChange}
+        onChange={(e) => {
+          handleChange(e, "email");
+        }}
+        style={{
+          border:
+            error.emailStatus === true
+              ? "1px solid hsl(353, 100%, 50%)"
+              : "1px solid #E2E2E2",
+        }}
       ></input>
+      <p id="emailError">{error.emailError}</p>
 
       <label for="pwd" id="pwdLabel">
         Password:
@@ -139,9 +169,20 @@ const Signup = (props) => {
       <input
         type="password"
         id="pwdSignup"
+        className="inputbox"
         value={formValues.password}
-        onChange={handlePasswordChange}
+        onChange={(e) => {
+          handleChange(e, "password");
+        }}
+        style={{
+          border:
+            error.passwordStatus === true
+              ? "1px solid hsl(353, 100%, 50%)"
+              : "1px solid #E2E2E2",
+        }}
       ></input>
+
+      <p id="passwordError">{error.passwordError}</p>
 
       <label for="mobSignup" id="mobLabelSignup">
         Mobile Number
@@ -150,9 +191,19 @@ const Signup = (props) => {
         type="tel"
         id="mobSignup"
         name="mobile"
+        className="inputbox"
         value={formValues.mobileNum}
-        onChange={handleMobileN_Change}
+        onChange={(e) => {
+          handleChange(e, "mobileNum");
+        }}
+        style={{
+          border:
+            error.mobNumStatus === true
+              ? "1px solid hsl(353, 100%, 50%)"
+              : "1px solid #E2E2E2",
+        }}
       />
+      <p id="mobileError">{error.mobNumError}</p>
 
       <button type="button" id="signupButton" onClick={handleSubmit}>
         <div id="signupText">Signup</div>

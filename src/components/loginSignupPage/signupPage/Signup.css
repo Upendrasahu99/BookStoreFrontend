@@ -1,27 +1,26 @@
-
-.signupHeadSignup,.loginHeadSignup{
+/* css for all child component which is same */
+#signupComponent *{
+    position: absolute;
+}
+.loginHeadSignup,.signupHeadSignup{
     display: inline-block;
     font: normal normal medium 25px/33px Roboto;
     letter-spacing: 0px;
     text-transform: uppercase;
     margin: 0%;
+    top: 28px;
 }
 .loginHeadSignup{ 
     /* for make cursor pointer when we hovew over heading  */
     cursor: pointer; 
-    position: absolute;
     left: 69px;
-    top: 28px;
     color: #878787;
 }
 .signupHeadSignup{
-    position: absolute;
-    right: 77px;
-    top: 28px;
+    left : 223px;
     color: #0A0102;;
 }
 .healineSignup{
-    position: absolute;
     top:64px;
     left:257px;
     width: 22px;
@@ -31,12 +30,11 @@
     border-radius: 4px;
     opacity: 1;
 }
-#fullNameLabel{
-    position: absolute;
-    /* Layout Properties */
-    top: 91px;
+
+/* css for all lable */
+#fullNameLabel, #emailSignuplabel, #pwdLabel, #mobLabelSignup{
     left: 69px;
-    width: 45px;
+    width: auto;
     height: 13px;
     /* UI Properties */
     text-align: left;
@@ -44,107 +42,76 @@
     letter-spacing: 0px;
     color: #0A0102;
     text-transform: capitalize;
+    opacity: 1;
+}
+#fullNameLabel{
+    /* Layout Properties */
+    top: 91px;
+}
+
+/* css for all input box */
+.inputbox{ 
+    left: 69px;
+    width: 252px;
+    height: 35px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    /* border: 1px solid #E2E2E2; */
+    border-radius: 2px;
     opacity: 1;
 }
 #inputName{
-    position: absolute;
-    /* Layout Properties */
     top: 104px;
+
+}
+
+/* css for all diplay error */
+#userN_error, #emailError, #passwordError, #mobileError{
     left: 69px;
-    width: 252px;
-    height: 35px;
-    /* UI Properties */
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #E2E2E2;
-    border-radius: 2px;
+    width: auto;
+    height: 10px;
+    /* UI Properties */  
+    font: normal normal normal 8px/10px Roboto;
+    letter-spacing: 0px;
+    color: #FF001C;
     opacity: 1;
+}
+
+#userN_error{
+    top: 135px;
+
 }
 #emailSignuplabel{
-    position:absolute;
-    /* Layout Properties */ 
     top: 154px;
-    left: 69px;
-    width: 36px;
-    height: 13px;
-    /* UI Properties */
-    text-align: left;
-    font: normal normal normal 10px/13px Roboto;
-    letter-spacing: 0px;
-    color: #0A0102;
-    text-transform: capitalize;
-    opacity: 1;
 }
 #emailSignup{
-    position: absolute;
-    /* Layout Properties */
     top: 167px;
-    left: 69px;
-    width: 252px;
-    height: 35px;
-    /* UI Properties */
-    background: #FFFFFF 0% 0% no-repeat padding-box; 
-    border: 1px solid #E2E2E2;
-    border-radius: 2px;
-     opacity: 1;
+}
+#emailError{
+    top: 197px;
 }
 #pwdLabel{
-    position: absolute;
-    /* Layout Properties */
     top: 217px;
-    left: 69px;
-    width: 44px;
-    height: 13px;
-    /* UI Properties */
-    text-align: left;
-    font: normal normal normal 10px/13px Roboto;
-    letter-spacing: 0px;
-    color: #0A0102;
-    text-transform: capitalize;
-    opacity: 1;
 }
 #pwdSignup{
-    position: absolute;
     top: 230px;
-    left: 69px;   
-    width: 252px;
-    height: 35px;
-    /* UI Properties */
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #E2E2E2;
-    border-radius: 2px;
-    opacity: 1;
+}
+#passwordError{
+    top: 261px;
 }
 #mobLabelSignup{
-    position: absolute;
     top:280px;
-    left: 69px;
-    width: 68px;
-    height: 13px;
-    /* UI Properties */
-    text-align: left;
-    font: normal normal normal 10px/13px Roboto;
-    letter-spacing: 0px;
-    color: #0A0102;
-    text-transform: capitalize;
-    opacity: 1;
 }
 #mobSignup{
-    position: absolute;
     top:293px;
-    left: 69px;
-    width: 252px;
-    height: 35px;
-    /* UI Properties */ 
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #E2E2E2;
-    border-radius: 2px;
-    opacity: 1;
+}
+#mobileError{
+    top: 325px;
 }
 #signupButton{
-    position: absolute;
     top: 350px;
     left:69px;
-    width: 252px;
+    width: 259px;
     height: 37px;
     /* UI Properties */
     background: #A03037 0% 0% no-repeat padding-box;
@@ -152,7 +119,6 @@
     opacity: 1;
 }
 #signupText{
-    position: absolute;
     top: 9px;
     left: 104px;
     width: 46px;
