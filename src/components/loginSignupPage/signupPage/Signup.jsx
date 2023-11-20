@@ -100,7 +100,7 @@ const Signup = (props) => {
     console.log(error);
   };
 
-  
+
   //Handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -131,6 +131,7 @@ const Signup = (props) => {
 
       <div className="healineSignup"></div>
 
+      {/* FullName box */}
       <label for="inputName" id="fullNameLabel">
         Full Name
       </label>
@@ -149,6 +150,7 @@ const Signup = (props) => {
       ></input>
       <p id="userN_error">{error.userN_Error}</p>
 
+        {/* Email box */}
       <label for="emailSignup" id="emailSignuplabel">
         Email id
       </label>
@@ -169,6 +171,7 @@ const Signup = (props) => {
       ></input>
       <p id="emailError">{error.emailError}</p>
 
+        {/* Password box */}
       <label for="pwd" id="pwdLabel">
         Password:
       </label>
@@ -187,9 +190,9 @@ const Signup = (props) => {
               : "1px solid #E2E2E2",
         }}
       ></input>
-
       <p id="passwordError">{error.passwordError}</p>
 
+        {/* Mobile number box */}
       <label for="mobSignup" id="mobLabelSignup">
         Mobile Number
       </label>
@@ -211,9 +214,11 @@ const Signup = (props) => {
       />
       <p id="mobileError">{error.mobNumError}</p>
 
+        {/* Signup button */}
       <button type="button" id="signupButton" onClick={handleSubmit}>
         <div id="signupText">Signup</div>
       </button>
+
     </div>
   );
 };
