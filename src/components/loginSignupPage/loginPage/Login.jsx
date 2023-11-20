@@ -9,6 +9,7 @@ const Login = (props) => {
     password: "",
   });
 
+  
   //Error Message when error occur it will show
   //Initial Error Message when there is no error no message will show there
   const [error, SetError] = useState({
@@ -18,6 +19,7 @@ const Login = (props) => {
     passwordStatus: false,
   });
 
+
   //Regex Pattern
   const regex = {
     emailReg: /^[\w-.]+@gmail\.com$/,
@@ -25,11 +27,13 @@ const Login = (props) => {
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
   };
 
+
   //Handling event when data change it will add.
   const handleChange = (e, type) => {
     setFormValues({ ...formValues, [type]: e.target.value });
     console.log(formValues);
   };
+
 
   //Check Data Pattern
   const checkData = async () => {
@@ -64,24 +68,22 @@ const Login = (props) => {
     console.log(newErrors);
   };
 
+
   //Handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await checkData();
+     checkData();
 
      //If Error status false than it call the signup function from service or show alert message 
      if (
-      error.emailStatus === false &&
-      error.passwordStatus === false 
+      regex.emailReg.test(formValues.email) &&
+      regex.passwordReg.test(formValues.password)
     ) {
       const response = await login(formValues); //for user login method form service
       console.log(response); //Show the response coming form login  function
-      // const response = await signup(formValues); // for user registration
-      alert("User login successfully");
-      localStorage.setItem("token", response.data.data.token);
-      let token = localStorage.getItem("token");
-      console.log(token)
+      alert("User login successfully"); //altert message after login 
+      localStorage.setItem("token", response.data.data.token);// Set data in local Storage of browser
     }
   }
 

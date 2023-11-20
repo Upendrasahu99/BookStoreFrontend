@@ -11,9 +11,10 @@ const Signup = (props) => {
     mobileNum: "",
   });
 
+
   //Error Message when error occur it will show
   //Initial Error Message when there is no error no message will show there
-  const [error, SetError] = useState({
+  const [error, setError] = useState({
     userN_Error: "",
     userStatus: false,
     emailError: "",
@@ -24,6 +25,7 @@ const Signup = (props) => {
     mobNumStatus: false,
   });
 
+
   //Regex Pattern
   const regex = {
     userN_Reg: /^[A-Z][a-z]+ [A-Z][a-z]+$/,
@@ -33,80 +35,84 @@ const Signup = (props) => {
     mobileNumReg: /[0-9]{10}/,
   };
 
+
   //Handling event when data change it will add.
   const handleChange = (e, type) => {
     setFormValues({ ...formValues, [type]: e.target.value });
-    //console.log(formValues);
+    console.log(formValues);
   };
 
-  //Check Data Pattern 
-  const checkData = async() => {
-    //Empy Error object 
+
+  //Check Data Pattern
+  const checkData = () => {
+    debugger;
+
+    //Empy Error object
     let newErrors = {};
 
     //Check first Name
     newErrors = !formValues.fullName
-      ? { ...newErrors, userN_Error: "Username is empty",  userStatus: true }
+      ? { ...newErrors, userN_Error: "Username is empty", userStatus: true }
       : !regex.userN_Reg.test(formValues.fullName)
-      ? { ...newErrors, userN_Error: "Username is invalid",  userStatus: true }
+      ? { ...newErrors, userN_Error: "Username is invalid", userStatus: true }
       : { ...newErrors, userN_Error: "", userStatus: false };
 
-      //Check Email
+    //Check Email
     newErrors = !formValues.email
       ? { ...newErrors, emailError: "Email is empty", emailStatus: true }
       : !regex.emailReg.test(formValues.email)
-      ? { ...newErrors, emailError: "Email is invalid",  emailStatus: true }
+      ? { ...newErrors, emailError: "Email is invalid", emailStatus: true }
       : { ...newErrors, emailError: "", emailStatus: false };
 
-      //Check Password
+    //Check Password
     newErrors = !formValues.password
       ? {
           ...newErrors,
           passwordError: "Password is empty",
-          passwordStatus: true
+          passwordStatus: true,
         }
       : !regex.passwordReg.test(formValues.password)
       ? {
           ...newErrors,
           passwordError: "Password is invalid",
-          passwordStatus: true
+          passwordStatus: true,
         }
       : { ...newErrors, passwordError: "", passwordStatus: false };
 
-      //Check Mobile Number
+    //Check Mobile Number
     newErrors = !formValues.mobileNum
       ? {
           ...newErrors,
           mobNumError: "Mobile number is empty",
-          mobNumStatus: true
+          mobNumStatus: true,
         }
       : !regex.mobileNumReg.test(formValues.mobileNum)
       ? {
           ...newErrors,
           mobNumError: "Mobile number is invalid",
-          mobNumStatus: true
+          mobNumStatus: true,
         }
       : { ...newErrors, mobNumError: "", mobNumStatus: false };
 
-      //Set Error data 
-    await SetError(newErrors);
+    //Set Error data
+    setError(newErrors);
     //show error data
-    console.log(newErrors)
-  }
+    console.log(error);
+  };
 
-
+  
   //Handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await checkData();
+    checkData();
 
-    //If Error status false than it call the signup function from service or show alert message 
+    //Added check regex pattern condition if all condition true than it work
     if (
-      error.userStatus === false &&
-      error.emailStatus === false &&
-      error.passwordStatus === false &&
-      error.mobNumStatus === false
+      regex.userN_Reg.test(formValues.fullName) &&
+      regex.emailReg.test(formValues.email) &&
+      regex.passwordReg.test(formValues.password) &&
+      regex.mobileNumReg.test(formValues.mobileNum)
     ) {
       const response = await signup(formValues); // for user registration
       console.log(response); //Show the response coming form signup function
