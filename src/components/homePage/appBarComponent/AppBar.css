@@ -1,0 +1,60 @@
+
+.appBarHeader{
+
+}
+.toolBar{
+    height: 60px;
+    background: #A03037 0% 0% no-repeat padding-box;
+}
+.searchBarOuter{
+    position: relative;
+    left: 334px;
+    width: 490px;
+    height: 33px;
+    background: #FCFCFC 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    color: #9D9D9D;
+    font: normal normal normal 12px/16px Roboto;
+    text-align: left;
+}
+#bookImage{
+    position: absolute;
+    width: 31.04px;
+    height: 23.71px;
+    left: 163.98px;
+}
+.BSheading{
+    position :absolute;
+    top: 22px;
+    left: 201px;
+    width: auto;
+    height: 26px;
+    font: normal normal normal 20px/26px Roboto;
+}
+
+.profileButton{
+    position: absolute;
+    left: 1040px;
+    width: 100px;
+    height: 100%;
+    border-right: 1px solid rgb(84, 74, 74);
+    border-left: 1px solid rgb(84, 74, 74);;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.cartButton{
+    position: absolute;
+    border-right: 1px solid rgb(84, 74, 74);
+    left: 1140px;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
