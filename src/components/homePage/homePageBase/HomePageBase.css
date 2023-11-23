@@ -1,8 +1,24 @@
 .homePageBase{
+    height: 100vh;
+    width: 100vw;
 }
 .proifileContainer{
     position: absolute;
     height: 162px;
     width: 261px;
     left: 1010px;
+}
+.display{
+
+    height:  auto;
+    margin-left: 177px;
+    margin-right: 177px;
+}
+#upperDiv{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+#booksHeading{
+    font-size: x-large
 }
