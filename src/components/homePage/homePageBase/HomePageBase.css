@@ -22,3 +22,9 @@
 #booksHeading{
     font-size: x-large
 }
+#lowerDiv{
+    display: flex;
+    flex-wrap: wrap; /* make all not in the box not increase the width */
+    justify-content: start;
+    width: auto;
+}

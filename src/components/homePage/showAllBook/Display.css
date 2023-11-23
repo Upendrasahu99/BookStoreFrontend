@@ -2,8 +2,9 @@
     height: 275px;
     width: 235px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #E2E2E2;
+    /* border: 1px solid #E2E2E2; */
     border-radius: 3px;
+    padding: 25px;
 }
 #upperdivDisplay{
     height: 172px;

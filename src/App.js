@@ -11,7 +11,7 @@ function App() {
       <Routes>
         {/* Give the path name and element which render on particular path  */}
         <Route path='/' element={<HomPageBase/>}></Route>
-        <Route path='login/signup' element={<Base/>}></Route>
+        <Route path='/login_signup' element={<Base/>}></Route>
       </Routes>
       {/* <Base/>
       <HomPageBase/> */}

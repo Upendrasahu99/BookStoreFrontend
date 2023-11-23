@@ -3,7 +3,7 @@ import './Display.css';
 import bookImg from '../../../asset/SampleBookimg.png'
 import { Paper } from '@mui/material';
 
-const Display = () => {
+const Display = ({Book}) => {
     return (
         <div id="displayComponent">
             <Paper>
@@ -11,21 +11,12 @@ const Display = () => {
             <img src={bookImg} className="bookImg"></img>
             </div>
             <div id='lowerDivDisplay'>
-                <div id='bookTitle'>Don't Make me think</div>
-                <div id='authorName'>by Steve Krug</div>
+                <div id='bookTitle'>{Book.title}</div>
+                <div id='authorName'>{Book.author}</div>
                 <div id='ratingbox'>4.5</div>
-                <div id='price'>Rs 1500</div>
+                <div id='price'>Rs  {Book.price}</div>
             </div>
             </Paper>
-            {/* <div id='upperdivDisplay'>
-                <img src={bookImg} className="bookImg"></img>
-            </div>
-            <div id='lowerDivDisplay'>
-                <div id='bookTitle'>Don't Make me think</div>
-                <div>by Steve Krug</div>
-                <div style={{display:"flex"}}></div>
-                <div style={{fontWeight:"bold", display:"flex"}}>Rs 1500</div>
-            </div> */}
         </div>
     );
 }
