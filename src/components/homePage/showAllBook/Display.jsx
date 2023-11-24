@@ -8,7 +8,7 @@ const Display = ({Book}) => {
         <div id="displayComponent">
             <Paper>
             <div id='upperdivDisplay'>
-            <img src={bookImg} className="bookImg"></img>
+            <img src={Book.image} className="bookImg"/>
             </div>
             <div id='lowerDivDisplay'>
                 <div id='bookTitle'>{Book.title}</div>
