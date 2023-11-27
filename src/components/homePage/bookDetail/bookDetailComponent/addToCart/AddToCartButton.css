@@ -1,0 +1,12 @@
+#incrementDecrementButton{
+    display: flex;
+    flex-direction: row;
+}
+#addRemoveButton{
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+    border: 1px solid #DBDBDB;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}

@@ -2,18 +2,17 @@ import React from "react";
 import "./BookDetail.css";
 import { Button } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import styled from "@emotion/styled";
+// import styled from "@emotion/styled";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import TextField from "@mui/material/TextField";
-import Rating from "@mui/material/Rating";
-import Stack from "@mui/material/Stack";
-import CustomerReview from "./CustomerReview";
+// import Rating from "@mui/material/Rating";
+// import Stack from "@mui/material/Stack";
+import CustomerReview from "./bookDetailComponent/CustomerReview.jsx";
 import Typography from "@mui/material/Typography";
+import AddToCartButton from "./bookDetailComponent/addToCart/AddToCartButton.jsx";
 
 const BookDetail = ({BookData}) => {
-  // for start rating
-  const [value, setValue] = React.useState(2);
 
   return (
     <div id="dispBookMain">
@@ -32,12 +31,14 @@ const BookDetail = ({BookData}) => {
         </div>
 
         <div id="leftDivBelowDispBook">
-          <Button
-            variant="contained"
-            sx={{ background: "#A03037", width: "170px" }}
-          >
-            NOTIFY ME
-          </Button>
+
+
+{/* Add to Cart Button */}
+          <div id="addToBagButton">
+            <AddToCartButton/>
+          </div>
+
+{/* WishList Button */}
           <Button
             variant="contained"
             sx={{ background: " #333333", width: "170px" }}

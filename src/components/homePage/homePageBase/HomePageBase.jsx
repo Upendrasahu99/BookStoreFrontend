@@ -5,6 +5,7 @@ import "./HomePageBase.css";
 import Display from "../showAllBook/Display";
 import { getAllBookService } from "../../../service/BookService";
 import BookDetail from "../bookDetail/BookDetail";
+import BookCart from "../cart/BookCart";
 
 const HomPageBase = () => {
   //Show profile container
@@ -59,6 +60,11 @@ const HomPageBase = () => {
         </div>
 
 
+        {/* <div id="lowerDiv" style={{border:"5px solid blue"}}>
+            <Star/>
+          </div> */}
+
+
         {bookDetail != null ? 
         //For showing Book Detail page
         (
@@ -78,6 +84,8 @@ const HomPageBase = () => {
             }
           </div>
         )}
+
+
 
 
       </div>
