@@ -13,8 +13,9 @@ const HomPageBase = () => {
   //All Book Dat store
   const [allBook, setAllBook] = useState([]);
 
-  //Show BookDetail
-  const [showDetailPage, setshowDetailPage] = useState(true);
+  //Book data for single book
+  const [bookDetail, setBookDetail] = useState();
+
 
   //Show profile container method
   const changeContainer = () => {
@@ -25,24 +26,27 @@ const HomPageBase = () => {
   const setAllNote = async () => {
     //Call getallBookService
     const response = await getAllBookService();
-    console.log(response);
 
     //New Array for storing data which is comming rom getAllbookService
     let newArray = [];
     newArray = response.data.result;
-    // console.log(newArray)
 
+    //setBook Data 
     setAllBook(newArray);
-    console.log(allBook);
   };
 
-  // const allBookDetailList = allBook.map(data => <Display Book={data}/> )
+  //For Showing Single book detail page
+  const setBookDataForDisplay = (bookData) =>{
+    setBookDetail(bookData)
+    console.log(bookData)
+  }
+
 
   return (
     <div className="homePageBase">
-      <div onClick={setAllNote}>
+      <div onClick={setAllNote}>   
         {/* Remove this when */}
-        <HomePageAppBar Change={changeContainer} />
+        <HomePageAppBar Change={changeContainer} Set ={setBookDataForDisplay}/>
       </div>
       <div className="proifileContainer">
         {showContainer ? <ProfileContainer /> : null}
@@ -50,14 +54,16 @@ const HomPageBase = () => {
       <div className="display">
         <div id="upperDiv">
           <p id="booksHeading">Books</p>
-          <p></p>
+          {/* arrayLenght is equal to total book(item) */}
+          <p style={{paddingLeft:"10px"}}>({allBook.length} item)</p> 
         </div>
 
-        {showDetailPage ? 
+
+        {bookDetail != null ? 
         //For showing Book Detail page
         (
           <div id="lowerDiv">
-            <BookDetail />
+            <BookDetail BookData={bookDetail}/>
           </div>
         ) :
         //For showing all book
@@ -65,12 +71,14 @@ const HomPageBase = () => {
           <div id="lowerDiv">
             {
               //Sending all book data as prop in Display book component
+              
               allBook.map((data) => (
-                <Display Book={data} />
+                <Display Book={data} SetBookData ={setBookDataForDisplay}/>
               ))
             }
           </div>
         )}
+
 
       </div>
     </div>
