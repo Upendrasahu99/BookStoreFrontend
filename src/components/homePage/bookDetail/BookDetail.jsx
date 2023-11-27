@@ -11,7 +11,7 @@ import Stack from "@mui/material/Stack";
 import CustomerReview from "./CustomerReview";
 import Typography from "@mui/material/Typography";
 
-const BookDetail = () => {
+const BookDetail = ({BookData}) => {
   // for start rating
   const [value, setValue] = React.useState(2);
 
@@ -21,13 +21,12 @@ const BookDetail = () => {
       <div id="leftDivDispBook">
         <div id="leftDivAboveDispBook">
           <img
-            src="https://bc-img.s3.ap-south-1.amazonaws.com/images/cover/bc/9788172234980.jpg"
+            src={BookData.image}
             id="selectImageDispBook"
           ></img>
           <div id="imageBoxDispBook">
             <img
-              src="https://bc-img.s3.ap-south-1.amazonaws.com/images/cover/bc/9788172234980.jpg"
-              id="imageDispBook"
+              src={BookData.image} id="imageDispBook"
             ></img>
           </div>
         </div>
@@ -51,12 +50,12 @@ const BookDetail = () => {
 
       {/* Right */}
       <div id="rightDivDispBook">
-        <div id="titleDispBook">Heading</div>
-        <div id="authorDispBook">author</div>
+        <div id="titleDispBook">{BookData.title}</div>
+        <div id="authorDispBook">{BookData.author}</div>
         <div id="showRatingBoxDispBook">
           4.5 <StarIcon sx={{ fontSize: "12px" }} />
         </div>
-        <div id="bookPriceDispBook">Rs 1500</div>
+        <div id="bookPriceDispBook">Rs {BookData.price}</div>
         <div className="horizontalLineDispBook">
           <hr></hr>
         </div>

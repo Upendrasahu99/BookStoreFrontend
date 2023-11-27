@@ -9,7 +9,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import "./AppBar.css";
 import bookLogo from "../../../asset/education@2x.png";
 import PermIdentitySharpIcon from "@mui/icons-material/PermIdentitySharp";
-import { Icon, IconButton } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 const Search = styled("div")(({ theme }) => ({
@@ -41,16 +40,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function HomePageAppBar(props) {
+
+
+export default function HomePageAppBar({Change,Set}) {
   return (
-    <Box className="profileContainer" sx={{ flexGrow: 1 }}>
+    <Box className="profileContainer" sx={{ flexGrow: 1}}>
       <AppBar className="appBarHeader" position="static">
         <Toolbar className="toolBar">
           {/* Book logo(image) */}
           <img src={bookLogo} id="bookImage"></img>
 
           {/* BookStore Heading */}
-          <Typography className="BSheading">Bookstore</Typography>
+          <Typography className="BSheading" onClick={()=>Set(null)}>Bookstore</Typography>
 
           {/* Search Bar */}
           <Search className="searchBarOuter">
@@ -67,7 +68,7 @@ export default function HomePageAppBar(props) {
          {/* <div className="profilAndCart"> */}
 
             {/* Profile */}
-            <div className="profileButton" onClick={props.Change}>
+            <div className="profileButton" onClick={Change}>
                 <PermIdentitySharpIcon
                   className="profileIcon"
                   style={{ color: "white" }}
@@ -76,7 +77,7 @@ export default function HomePageAppBar(props) {
             </div>
             
             {/* Cart */}
-            <div className="cartButton" onClick={props.Change} >
+            <div className="cartButton" onClick={Change} >
                 <ShoppingCartOutlinedIcon
                   className="cartLogo"
                   style={{ color: "white" }}

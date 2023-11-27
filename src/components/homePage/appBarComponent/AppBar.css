@@ -30,6 +30,8 @@
     width: auto;
     height: 26px;
     font: normal normal normal 20px/26px Roboto;
+    /* for making heading as pointer */
+    cursor: pointer;
 }
 
 .profileButton{
